@@ -64,8 +64,12 @@ svg.i{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.4;stro
 .brand-name{font-family:var(--mono);font-size:16px;letter-spacing:.12em;line-height:1.1;font-weight:500}
 .brand-sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;font-weight:400;display:block;margin-top:3px}
 nav ul{list-style:none;margin:0;padding:0;display:flex;gap:clamp(18px,3vw,46px)}
-nav a{font-size:12.5px;padding:6px 0;border-bottom:2px solid transparent}
-nav a:hover,nav a[aria-current="page"]{border-bottom-color:#2a62c0;color:#0d3a86}
+/* internal nav is now <button>, not <a>, so the artifact sandbox never treats a tab click as leaving the page */
+.navlink{appearance:none;background:none;border:0;border-bottom:2px solid transparent;padding:6px 0;font:inherit;font-size:12.5px;color:inherit;cursor:pointer;font-family:var(--mono);}
+.navlink:hover,.navlink[aria-current="page"]{border-bottom-color:#2a62c0;color:#0d3a86}
+button.brand{appearance:none;background:none;border:0;padding:0;margin:0;cursor:pointer;text-align:left;font:inherit;color:inherit}
+button.btn{appearance:none;font:inherit;cursor:pointer}
+button.more{appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;cursor:pointer}
 
 /* ---------- shared panel ---------- */
 .wrap{max-width:1536px;margin:0 auto;padding:0 clamp(12px,1.8vw,26px)}
@@ -304,21 +308,21 @@ h1{
 
 <header class="bar">
   <div class="bar-in">
-    <a class="brand" href="#/home" aria-label="Joshua Carpentier, Software Carpentier">
+    <button type="button" class="brand" data-nav="home" aria-label="Joshua Carpentier, Software Carpentier">
       <svg class="brand-mark" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
         <rect x="3" y="3" width="34" height="34"/><rect x="8" y="8" width="24" height="24"/>
         <path d="M20 8v24M8 20h24M14 8v24M26 8v24M8 14h24M8 26h24" stroke-width=".8"/>
       </svg>
       <span class="brand-name">JOSHUA CARPENTIER<span class="brand-sub">SOFTWARE CARPENTIER</span></span>
-    </a>
+    </button>
     <nav aria-label="Main">
       <ul>
-        <li><a href="#/home" data-nav="home">Home</a></li>
-        <li><a href="#/professional-projects" data-nav="professional-projects">Professional</a></li>
-        <li><a href="#/personal-projects" data-nav="personal-projects">Personal</a></li>
-        <li><a href="#/about" data-nav="about">About</a></li>
-        <li><a href="#/skills" data-nav="skills">Skills</a></li>
-        <li><a href="#/contact" data-nav="contact">Contact</a></li>
+        <li><button type="button" class="navlink" data-nav="home">Home</button></li>
+        <li><button type="button" class="navlink" data-nav="professional-projects">Professional</button></li>
+        <li><button type="button" class="navlink" data-nav="personal-projects">Personal</button></li>
+        <li><button type="button" class="navlink" data-nav="about">About</button></li>
+        <li><button type="button" class="navlink" data-nav="skills">Skills</button></li>
+        <li><button type="button" class="navlink" data-nav="contact">Contact</button></li>
       </ul>
     </nav>
   </div>
@@ -335,8 +339,8 @@ h1{
       <p class="tagline">Turning ideas into scalable systems</p>
       <p class="intro">I’m Joshua — a software carpentier, focused on building reliable, maintainable, and scalable systems. I bridge the gap between problem solving and thoughtful architecture, crafting solutions that last.</p>
       <div class="btns">
-        <a class="btn" href="#/professional-projects">View projects <svg><use href="#i-arrow"/></svg></a>
-        <a class="btn" href="#/contact">Get in touch <svg><use href="#i-arrow"/></svg></a>
+        <button type="button" class="btn" data-nav="professional-projects">View projects <svg><use href="#i-arrow"/></svg></button>
+        <button type="button" class="btn" data-nav="contact">Get in touch <svg><use href="#i-arrow"/></svg></button>
       </div>
       <div class="hero-foot">
         <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="16" cy="16" r="5"/><path d="M16 2v10M16 20v10M2 16h10M20 16h10"/></svg>
@@ -393,7 +397,7 @@ h1{
             <div><h3>Claims Automation Pipeline</h3><div class="tags"><span class="tag">AWS</span><span class="tag">Python</span><span class="tag">Docker</span><span class="tag">LocalStack</span></div></div>
           </div>
           <p>Built a serverless workflow to automate credit card collections processes, reducing manual work and improving turnaround time.</p>
-          <a class="more" href="#/professional-projects">View details <svg><use href="#i-arrow"/></svg></a>
+          <button type="button" class="more" data-nav="professional-projects">View details <svg><use href="#i-arrow"/></svg></button>
         </article>
 
         <article class="card">
@@ -402,7 +406,7 @@ h1{
             <div><h3>Empath Micro-Frontend</h3><div class="tags"><span class="tag">Vue.js</span><span class="tag">TypeScript</span><span class="tag">Jest</span><span class="tag">Vue Testing Library</span></div></div>
           </div>
           <p>Rebuilt a customer servicing micro-frontend with improved test coverage and performance.</p>
-          <a class="more" href="#/professional-projects">View details <svg><use href="#i-arrow"/></svg></a>
+          <button type="button" class="more" data-nav="professional-projects">View details <svg><use href="#i-arrow"/></svg></button>
         </article>
 
         <article class="card">
@@ -411,7 +415,7 @@ h1{
             <div><h3>TracFlo</h3><div class="tags"><span class="tag">PERN Stack</span><span class="tag">Express</span><span class="tag">React</span><span class="tag">Knex</span></div></div>
           </div>
           <p>Built full-stack features — from UI to database — for a construction-fintech platform that turns field activity into billable change orders, used by 50+ contractor companies and 35+ active users. Led the migration off a legacy PHP system with 30+ reversible database migrations and row-count checks, so the cutover ran without losing or duplicating customer data. Shipped 13+ features handling 135+ equipment and material tickets per project.</p>
-          <a class="more" href="#/professional-projects">View details <svg><use href="#i-arrow"/></svg></a>
+          <button type="button" class="more" data-nav="professional-projects">View details <svg><use href="#i-arrow"/></svg></button>
         </article>
 
         
@@ -436,7 +440,7 @@ h1{
             <div><h3>Home Lab / TrueNAS</h3><div class="tags"><span class="tag">Linux</span><span class="tag">TrueNAS</span><span class="tag">Docker</span><span class="tag">Self-Hosted</span></div></div>
           </div>
           <p>Deployed a home NAS with redundancy, media serving, and AI tooling for personal projects.</p>
-          <a class="more" href="#/personal-projects">View details <svg><use href="#i-arrow"/></svg></a>
+          <button type="button" class="more" data-nav="personal-projects">View details <svg><use href="#i-arrow"/></svg></button>
         </article>
         <article class="card featured">
           <div class="fig">
@@ -665,22 +669,34 @@ h1{
 </main>
 
 <script>
-/* Tab routing: each nav item shows its own page. Uses "#/name" so the browser never scrolls to an anchor. */
+/* Tab routing, driven entirely by clicks on [data-nav] elements (buttons, not links).
+   Buttons never trigger the browser's own link-navigation handling, so a tab click can never
+   be mistaken for leaving the page — it only ever updates which <section> is visible. */
 (function(){
   var pages=["home","professional-projects","personal-projects","about","skills","contact"];
   var titles={home:"Home","professional-projects":"Professional Projects","personal-projects":"Personal Projects",about:"About",skills:"Skills",contact:"Contact"};
-  function current(){var h=location.hash.replace(/^#\/?/,"");return pages.indexOf(h)>-1?h:"home";}
-  function show(){
-    var id=current();
+  var current="home";
+  function show(id){
+    if(pages.indexOf(id)===-1)id="home";
+    current=id;
     pages.forEach(function(p){document.getElementById("page-"+p).hidden=(p!==id);});
-    document.querySelectorAll("nav a[data-nav]").forEach(function(a){
-      if(a.dataset.nav===id)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");
+    document.querySelectorAll("[data-nav]").forEach(function(el){
+      if(el.tagName!=="BUTTON")return;
+      if(el.dataset.nav===id && el.classList.contains("navlink"))el.setAttribute("aria-current","page");
+      else el.removeAttribute("aria-current");
     });
     document.title=(id==="home"?"":titles[id]+" · ")+"Joshua Carpentier · Software Carpentier";
+    try{history.replaceState(null,"","#/"+id);}catch(e){}
     window.scrollTo(0,0);
   }
-  window.addEventListener("hashchange",show);
-  show();
+  document.addEventListener("click",function(e){
+    var el=e.target.closest("[data-nav]");
+    if(!el)return;
+    e.preventDefault();
+    show(el.dataset.nav);
+  });
+  var startHash=(location.hash||"").replace(/^#\/?/,"");
+  show(pages.indexOf(startHash)>-1?startHash:"home");
 })();
 </script>
 <script>
