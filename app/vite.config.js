@@ -24,7 +24,11 @@ export default defineConfig({
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,png,svg,woff2}']
+        globPatterns: ['**/*.{js,css,html,png,svg,woff2}'],
+        // og-image.* is only ever fetched by link-preview crawlers (Slack, X,
+        // LinkedIn, ...), never by a visiting browser — precaching it for
+        // offline use would just be dead weight in the service worker cache.
+        globIgnores: ['**/og-image.*']
       }
     })
   ],

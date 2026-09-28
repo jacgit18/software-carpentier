@@ -45,8 +45,8 @@ src/
   App.jsx                      page state (which tab is active) + <title> updates
   index.css                    all styles, ported as-is from the original <style> block
   components/
-    NavBar.jsx                 top bar + the six tab buttons
-    TitleBlock.jsx              the drawing-sheet corner block (every page uses this)
+    NavBar.jsx                 top bar + the six tab buttons (collapses to a
+                                 hamburger menu at <=560px)
     Cube.jsx                    renders the isometric cube from utils/cube.js
     Home.jsx / ProfessionalProjects.jsx / PersonalProjects.jsx /
       About.jsx / Skills.jsx / Contact.jsx     one component per tab
@@ -55,6 +55,10 @@ src/
     IconSprite.jsx              the shared <symbol> icon sprite
   utils/
     cube.js                     pure geometry functions for the cube (no DOM code)
+public/
+  icon.svg / icon-*.png / favicon.png / apple-touch-icon.png   PWA + favicon icons
+  og-image.svg / og-image.png   social-preview image (1200x630)
+  tracflo-logo.svg              third-party logo used on the TracFlo card
 ```
 
 ## Notes on the port
@@ -86,19 +90,22 @@ src/
 
 ## Deploying
 
-`npm run build` outputs a static `dist/` folder — drop it on GitHub Pages,
+`npm run build` outputs a static `dist/` folder — works on GitHub Pages,
 Netlify, Vercel, or any static host. `base` is set to `'./'` (relative paths),
 which works from any subpath without edits.
 
-In this repo specifically: this `app/` folder is the source; the built output
-(`dist/index.html` + `dist/assets/`) is committed at the **repo root**, since
-that's what GitHub Pages actually serves (Pages has no build step of its own —
-it just serves whatever static files are in the branch). After changing
-anything under `app/src`, rebuild and copy the new `dist/` contents to the
-repo root:
+In this repo specifically: deployment is handled by
+`.github/workflows/deploy.yml`, which builds `app/` and publishes `app/dist`
+straight to GitHub Pages (Pages is set to the "GitHub Actions" build type, not
+a branch/folder) on every push to `main`. Nothing under `dist/` is committed —
+`dist/` is gitignored, and CI rebuilds from source every time. To deploy, just
+push to `main`; no manual build-and-copy step.
 
-```bash
-cd app
-npm run build
-cp -r dist/* ../
-```
+## PWA
+
+The site is installable (`vite-plugin-pwa`, configured in `vite.config.js`):
+a web app manifest plus an auto-updating service worker that precaches the
+built assets for offline use. If you change the manifest or icons, rerun
+`npm run build` locally to confirm `dist/manifest.webmanifest` and `dist/sw.js`
+still generate cleanly before pushing — the CI build doesn't fail loudly on a
+malformed manifest.

@@ -51,6 +51,7 @@ export default function App() {
   return (
     <>
       <IconSprite />
+      <a className="skip-link" href="#main">Skip to content</a>
       <NavBar page={page} onNav={nav} />
       <main className="wrap" id="main" tabIndex={-1} ref={mainRef}>
         {page === 'home' && <Home onNav={nav} />}

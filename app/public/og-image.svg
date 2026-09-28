@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="grid-major" width="120" height="120" patternUnits="userSpaceOnUse">
+      <path d="M0 0H120M0 0V120" stroke="rgba(120,170,240,.16)" stroke-width="1"/>
+    </pattern>
+    <pattern id="grid-minor" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M0 0H24M0 0V24" stroke="rgba(120,170,240,.07)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#06285a"/>
+  <rect width="1200" height="630" fill="url(#grid-minor)"/>
+  <rect width="1200" height="630" fill="url(#grid-major)"/>
+
+  <g transform="translate(90 175)" fill="none" stroke="#7cc0ff" stroke-width="2.4">
+    <rect x="0" y="0" width="108" height="108"/>
+    <rect x="16" y="16" width="76" height="76"/>
+    <path d="M54 16v76M16 54h76M32 16v76M76 16v76M16 32h76M16 76h76" stroke-width="1.2"/>
+  </g>
+
+  <text x="90" y="350" font-family="IBM Plex Mono, monospace" font-size="46" letter-spacing="1" fill="#f2f7ff">JOSHUA CARPENTIER</text>
+  <text x="90" y="388" font-family="IBM Plex Mono, monospace" font-size="16" letter-spacing="4" fill="#9dc0ea">SOFTWARE CARPENTIER</text>
+  <text x="90" y="446" font-family="Rajdhani, sans-serif" font-weight="500" font-size="26" letter-spacing="1" fill="#7cc0ff">TURNING IDEAS INTO SCALABLE SYSTEMS</text>
+
+  <text x="90" y="560" font-family="IBM Plex Mono, monospace" font-size="16" letter-spacing="0.5" fill="#8db3e6">jacgit18.github.io/software-carpentier</text>
+</svg>
