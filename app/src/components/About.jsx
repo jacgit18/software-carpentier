@@ -4,7 +4,7 @@ export default function About() {
     <section className="page" id="page-about" aria-labelledby="about-h">
       <div className="panel">
         <div className="page-head">
-          <svg className="mark i"><use href="#i-cross" /></svg>
+          <svg className="mark i" aria-hidden="true"><use href="#i-cross" /></svg>
           <h2 id="about-h">About Me</h2>
         </div>
         <div className="roles">Builder<i>/</i>Problem Solver<i>/</i>Lifelong Learner</div>

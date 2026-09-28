@@ -26,10 +26,10 @@ export default function NavBar({ page, onNav }) {
             <rect x="8" y="8" width="24" height="24" />
             <path d="M20 8v24M8 20h24M14 8v24M26 8v24M8 14h24M8 26h24" strokeWidth=".8" />
           </svg>
-          <span className="brand-name">
+          <h1 className="brand-name">
             JOSHUA CARPENTIER
             <span className="brand-sub">SOFTWARE CARPENTIER</span>
-          </span>
+          </h1>
         </button>
         <nav aria-label="Main">
           <ul>

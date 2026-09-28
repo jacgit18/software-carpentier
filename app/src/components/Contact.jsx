@@ -11,18 +11,19 @@ export default function Contact() {
     <section className="page" id="page-contact" aria-labelledby="contact-h">
       <div className="panel">
         <div className="page-head">
-          <svg className="mark i"><use href="#i-cross" /></svg>
+          <svg className="mark i" aria-hidden="true"><use href="#i-cross" /></svg>
           <h2 id="contact-h">Get in Touch</h2>
         </div>
         <p className="sub">Open to software engineering and business systems roles.</p>
         <div className="contact-grid">
           {ROWS.map((r) => (
             <div className="crow" key={r.title}>
-              <span className="iconbox"><svg className="i"><use href={`#${r.icon}`} /></svg></span>
+              <span className="iconbox"><svg className="i" aria-hidden="true"><use href={`#${r.icon}`} /></svg></span>
               <div>
                 <h3>{r.title}</h3>
                 <a href={r.href} target={r.external ? '_blank' : undefined} rel={r.external ? 'noopener noreferrer' : undefined}>
                   {r.label}
+                  {r.external && <span className="sr-only"> (opens in new tab)</span>}
                 </a>
               </div>
             </div>

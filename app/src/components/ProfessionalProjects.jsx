@@ -34,7 +34,7 @@ export default function ProfessionalProjects() {
     <section className="page" id="page-professional-projects" aria-labelledby="prof-h">
       <div className="panel">
         <div className="page-head">
-          <svg className="mark i"><use href="#i-cross" /></svg>
+          <svg className="mark i" aria-hidden="true"><use href="#i-cross" /></svg>
           <h2 id="prof-h">Professional Projects</h2>
         </div>
         <p className="sub">Real solutions. Clean code. Measurable impact.</p>

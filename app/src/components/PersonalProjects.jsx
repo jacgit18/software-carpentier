@@ -6,7 +6,7 @@ export default function PersonalProjects({ onNav }) {
     <section className="page" id="page-personal-projects" aria-labelledby="pers-h">
       <div className="panel">
         <div className="page-head">
-          <svg className="mark i"><use href="#i-cross" /></svg>
+          <svg className="mark i" aria-hidden="true"><use href="#i-cross" /></svg>
           <h2 id="pers-h">Personal Projects</h2>
         </div>
         <p className="sub">Side builds — for fun, for training, or to fix my own workflow.</p>
@@ -24,7 +24,7 @@ export default function PersonalProjects({ onNav }) {
             </div>
             <p>Deployed a home NAS with redundancy, media serving, and AI tooling for personal projects.</p>
             <button type="button" className="more" onClick={() => onNav('personal-projects')}>
-              View details <svg><use href="#i-arrow" /></svg>
+              View details <svg aria-hidden="true"><use href="#i-arrow" /></svg>
             </button>
           </article>
 
@@ -47,7 +47,8 @@ export default function PersonalProjects({ onNav }) {
                 <li>Excel export; Claude version backs up to GitHub</li>
               </ul>
               <a className="more" href="https://github.com/jacgit18/iron-log" target="_blank" rel="noopener noreferrer">
-                View on GitHub <svg><use href="#i-arrow" /></svg>
+                View on GitHub <svg aria-hidden="true"><use href="#i-arrow" /></svg>
+                <span className="sr-only"> (opens in new tab)</span>
               </a>
             </div>
           </article>
@@ -71,7 +72,8 @@ export default function PersonalProjects({ onNav }) {
                 <li>Mind maps and a dashboard for navigating the vault</li>
               </ul>
               <a className="more" href="https://github.com/jacgit18/DevHiveMind" target="_blank" rel="noopener noreferrer">
-                View on GitHub <svg><use href="#i-arrow" /></svg>
+                View on GitHub <svg aria-hidden="true"><use href="#i-arrow" /></svg>
+                <span className="sr-only"> (opens in new tab)</span>
               </a>
             </div>
           </article>
