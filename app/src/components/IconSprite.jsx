@@ -19,6 +19,7 @@ export default function IconSprite() {
     <symbol id="i-cal" viewBox="0 0 32 32"><rect x="4.5" y="6.5" width="23" height="21" rx="1"/><path d="M4.5 12.5h23M10 4v5M22 4v5M10 18h4M18 18h4M10 22.5h4"/></symbol>
     <symbol id="i-cross" viewBox="0 0 32 32"><circle cx="16" cy="16" r="9"/><path d="M16 3v8M16 21v8M3 16h8M21 16h8"/></symbol>
     <symbol id="i-wrench" viewBox="0 0 32 32"><path d="M20.5 5.5a6 6 0 0 0-5.6 8L5.5 22.9a2.6 2.6 0 0 0 3.6 3.6l9.4-9.4a6 6 0 0 0 8-5.6l-4 3.5-3.3-.8-.8-3.3z"/></symbol>
+    <symbol id="i-ai" viewBox="0 0 32 32"><path d="M16 4c0 6 2 8 8 8-6 0-8 2-8 8 0-6-2-8-8-8 6 0 8-2 8-8z"/><path d="M25 21c0 2.4.8 3.2 3.2 3.2-2.4 0-3.2.8-3.2 3.2 0-2.4-.8-3.2-3.2-3.2 2.4 0 3.2-.8 3.2-3.2z"/></symbol>
   ` }} />
     </svg>
   );

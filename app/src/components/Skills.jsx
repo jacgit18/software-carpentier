@@ -2,11 +2,12 @@ import TitleBlock from './TitleBlock.jsx';
 
 const ROWS = [
   { icon: 'i-code', title: 'Languages', items: ['Python', 'JavaScript', 'TypeScript', 'SQL'] },
-  { icon: 'i-monitor', title: 'Frontend', items: ['React', 'Vue', 'HTML', 'CSS', 'Tailwind'] },
-  { icon: 'i-server', title: 'Backend', items: ['Node.js', 'Express', 'FastAPI', '.NET (basics)'] },
-  { icon: 'i-cloud', title: 'Cloud & DevOps', items: ['AWS', 'Docker', 'Kubernetes', 'Terraform'] },
-  { icon: 'i-db', title: 'Databases', items: ['PostgreSQL', 'MySQL', 'DynamoDB', 'Redis'] },
+  { icon: 'i-monitor', title: 'Frontend', items: ['React', 'Vue', 'HTML', 'CSS'] },
+  { icon: 'i-server', title: 'Backend', items: ['Node.js', 'Express', 'FastAPI'] },
+  { icon: 'i-cloud', title: 'Cloud & DevOps', items: ['AWS', 'Docker'] },
+  { icon: 'i-db', title: 'Databases', items: ['PostgreSQL', 'MySQL'] },
   { icon: 'i-flask', title: 'Testing', items: ['Jest', 'Playwright', 'Vue Testing Library', 'Pytest'] },
+  { icon: 'i-ai', title: 'AI', items: ['Claude', 'ChatGPT'] },
   { icon: 'i-gear', title: 'Other', items: ['Git', 'Linux', 'Jira', 'Confluence', 'Power BI'] },
 ];
 
