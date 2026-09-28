@@ -31,7 +31,7 @@ export default function Contact() {
         </div>
         <p className="contact-note">Better systems. Stronger foundations.</p>
       </div>
-      <TitleBlock sheetTitle="Contact" sheetNo="A-106" />
+      <TitleBlock sheetNo="A-106" />
     </section>
   );
 }

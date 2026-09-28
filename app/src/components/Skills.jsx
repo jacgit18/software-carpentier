@@ -33,7 +33,7 @@ export default function Skills() {
         </div>
         <p className="motto hand">Plan. Build. Improve.</p>
       </div>
-      <TitleBlock sheetTitle="Skills &amp; tools" sheetNo="A-105" />
+      <TitleBlock sheetNo="A-105" />
     </section>
   );
 }

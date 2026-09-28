@@ -78,7 +78,7 @@ export default function PersonalProjects({ onNav }) {
           </article>
         </div>
       </div>
-      <TitleBlock sheetTitle="Personal projects" sheetNo="A-103" />
+      <TitleBlock sheetNo="A-103" />
     </section>
   );
 }

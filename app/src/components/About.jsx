@@ -23,7 +23,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <TitleBlock sheetTitle="About" sheetNo="A-104" />
+      <TitleBlock sheetNo="A-104" />
     </section>
   );
 }

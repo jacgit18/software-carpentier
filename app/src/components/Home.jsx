@@ -59,7 +59,7 @@ export default function Home({ onNav }) {
           </ul>
         </aside>
       </section>
-      <TitleBlock sheetTitle="Cover sheet" sheetNo="A-101" />
+      <TitleBlock sheetNo="A-101" />
     </section>
   );
 }

@@ -54,7 +54,7 @@ export default function ProfessionalProjects() {
           ))}
         </div>
       </div>
-      <TitleBlock sheetTitle="Professional projects" sheetNo="A-102" />
+      <TitleBlock sheetNo="A-102" />
     </section>
   );
 }
