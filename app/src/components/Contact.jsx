@@ -1,4 +1,3 @@
-import TitleBlock from './TitleBlock.jsx';
 
 const ROWS = [
   { icon: 'i-mail', title: 'Email', href: 'mailto:joshuaxcarpentier@gmail.com', label: 'joshuaxcarpentier@gmail.com', external: false },
@@ -31,7 +30,6 @@ export default function Contact() {
         </div>
         <p className="contact-note">Better systems. Stronger foundations.</p>
       </div>
-      <TitleBlock sheetNo="A-106" />
     </section>
   );
 }

@@ -1,4 +1,3 @@
-import TitleBlock from './TitleBlock.jsx';
 import { ClaimsThumb, EmpathThumb, TracFloThumb } from './ProjectThumbs.jsx';
 
 // Note: unlike the Personal Projects cards, these have no "View details" link —
@@ -54,7 +53,6 @@ export default function ProfessionalProjects() {
           ))}
         </div>
       </div>
-      <TitleBlock sheetNo="A-102" />
     </section>
   );
 }

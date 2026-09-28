@@ -1,4 +1,3 @@
-import TitleBlock from './TitleBlock.jsx';
 
 export default function About() {
   return (
@@ -23,7 +22,6 @@ export default function About() {
           </div>
         </div>
       </div>
-      <TitleBlock sheetNo="A-104" />
     </section>
   );
 }

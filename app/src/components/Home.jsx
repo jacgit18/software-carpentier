@@ -1,5 +1,4 @@
 import Cube from './Cube.jsx';
-import TitleBlock from './TitleBlock.jsx';
 
 export default function Home({ onNav }) {
   return (
@@ -59,7 +58,6 @@ export default function Home({ onNav }) {
           </ul>
         </aside>
       </section>
-      <TitleBlock sheetNo="A-101" />
     </section>
   );
 }

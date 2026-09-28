@@ -1,4 +1,3 @@
-import TitleBlock from './TitleBlock.jsx';
 import { HomeLabThumb } from './ProjectThumbs.jsx';
 import { IronLogFigure, DevHiveMindFigure } from './FeaturedFigures.jsx';
 
@@ -78,7 +77,6 @@ export default function PersonalProjects({ onNav }) {
           </article>
         </div>
       </div>
-      <TitleBlock sheetNo="A-103" />
     </section>
   );
 }

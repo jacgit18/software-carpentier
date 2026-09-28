@@ -1,4 +1,3 @@
-import TitleBlock from './TitleBlock.jsx';
 
 const ROWS = [
   { icon: 'i-code', title: 'Languages', items: ['Python', 'JavaScript', 'TypeScript', 'SQL'] },
@@ -33,7 +32,6 @@ export default function Skills() {
         </div>
         <p className="motto hand">Plan. Build. Improve.</p>
       </div>
-      <TitleBlock sheetNo="A-105" />
     </section>
   );
 }
