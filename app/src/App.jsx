@@ -10,7 +10,7 @@ import Contact from './components/Contact.jsx';
 
 const TITLES = {
   home: 'Home',
-  'professional-projects': 'Professional Projects',
+  'professional-projects': 'Professional Work',
   'personal-projects': 'Personal Projects',
   about: 'About',
   skills: 'Skills',

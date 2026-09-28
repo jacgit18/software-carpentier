@@ -31,6 +31,16 @@ export function TracFloThumb(props) {
   );
 }
 
+export function UpskillThumb(props) {
+  return (
+    <svg className="thumb i" viewBox="0 0 64 64" aria-hidden="true" {...props}>
+      <path d="M32 14 58 24 32 34 6 24z" />
+      <path d="M18 27v9c0 4 6.5 7 14 7s14-3 14-7v-9" />
+      <path d="M50 24v13M50 37l3.5 3.5" />
+    </svg>
+  );
+}
+
 export function HomeLabThumb(props) {
   return (
     <svg className="thumb i" viewBox="0 0 64 64" aria-hidden="true" {...props}>

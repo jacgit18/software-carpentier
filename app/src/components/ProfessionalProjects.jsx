@@ -1,28 +1,41 @@
-import { ClaimsThumb, EmpathThumb, TracFloThumb } from './ProjectThumbs.jsx';
+import { ClaimsThumb, EmpathThumb, TracFloThumb, UpskillThumb } from './ProjectThumbs.jsx';
 
 // Note: unlike the Personal Projects cards, these have no "View details" link —
 // the source for these three isn't publicly accessible, so the card ends after
 // the description.
 const PROJECTS = [
   {
-    id: 'claims',
+    id: 'payment-plans',
     Thumb: ClaimsThumb,
-    title: 'Claims Automation Pipeline',
+    title: 'RTIC — Promise to Pay Payment Plans',
+    meta: 'Capital One · Software Engineer · 2025',
     tags: ['AWS', 'Python', 'Docker', 'LocalStack'],
     description:
-      'Built a serverless workflow to automate credit card collections processes, reducing manual work and improving turnaround time.',
+      'Built the workflow that lets a customer who has fallen behind on a credit card enroll in a payment plan without waiting for a collections agent, as part of Capital One’s Real-Time Intelligence Collection (RTIC) platform. Also wrote the automated tests that check it from start to finish, running against simulated AWS services on a laptop so engineers could verify changes without waiting for a shared test environment.',
   },
   {
     id: 'empath',
     Thumb: EmpathThumb,
-    title: 'Empath Micro-Frontend',
+    title: 'Empath',
+    meta: 'Capital One · QA Engineer · 2024',
     tags: ['Vue.js', 'TypeScript', 'Jest', 'Vue Testing Library'],
-    description: 'Rebuilt a customer servicing micro-frontend, raising test coverage by 75% and improving performance.',
+    description:
+      'Built automated tests for the internal screens Capital One’s credit card agents use every day, including updating a customer’s citizenship record and requesting secure documents. Test coverage on those workflows rose 75%, so changes to compliance-sensitive features were caught before reaching agents or customers.',
+  },
+  {
+    id: 'td-upskilling',
+    Thumb: UpskillThumb,
+    title: 'Engineering Upskilling Program',
+    meta: 'TD Bank · Business Systems Analyst · 2022–23',
+    tags: ['Power BI', 'Java', 'Spring Boot', 'Docker'],
+    description:
+      'Helped plan and run a technical bootcamp program for 200+ software engineers, associate through senior. Interviewed engineers and leads to find what they needed, built a Power BI skill matrix from delivery metrics and technology demand to choose the topics, and wrote the setup guides for the Java, Spring Boot, Docker, and event-driven courses across 10 cohorts over 5 months.',
   },
   {
     id: 'tracflo',
     Thumb: TracFloThumb,
     title: 'TracFlo',
+    meta: 'TracFlo · Software Engineer · 2022',
     tags: ['PERN Stack', 'Express', 'React', 'Knex'],
     description:
       'Built full-stack features — from UI to database — for a construction-fintech platform that turns field activity into billable change orders, used by 50+ contractor companies and 35+ active users. Implemented the migration off a legacy PHP system with 30+ reversible database migrations and row-count checks, so the cutover ran without losing or duplicating customer data. Shipped 13+ features handling 135+ equipment and material tickets per project.',
@@ -36,16 +49,17 @@ export default function ProfessionalProjects() {
       <div className="panel">
         <div className="page-head">
           <svg className="mark i" aria-hidden="true"><use href="#i-cross" /></svg>
-          <h2 id="prof-h">Professional Projects</h2>
+          <h2 id="prof-h">Professional Work</h2>
         </div>
         <p className="sub">Real solutions. Clean code. Measurable impact.</p>
         <div className="pgrid">
-          {PROJECTS.map(({ id, Thumb, title, tags, description, link }) => (
+          {PROJECTS.map(({ id, Thumb, title, meta, tags, description, link }) => (
             <article className="card" key={id}>
               <div className="card-top">
                 <Thumb />
                 <div>
                   <h3>{title}</h3>
+                  <p className="card-meta">{meta}</p>
                   <div className="tags">{tags.map((t) => <span className="tag" key={t}>{t}</span>)}</div>
                 </div>
               </div>
