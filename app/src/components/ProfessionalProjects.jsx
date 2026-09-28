@@ -17,7 +17,7 @@ const PROJECTS = [
     Thumb: EmpathThumb,
     title: 'Empath Micro-Frontend',
     tags: ['Vue.js', 'TypeScript', 'Jest', 'Vue Testing Library'],
-    description: 'Rebuilt a customer servicing micro-frontend with improved test coverage and performance.',
+    description: 'Rebuilt a customer servicing micro-frontend, raising test coverage by 75% and improving performance.',
   },
   {
     id: 'tracflo',
@@ -25,7 +25,7 @@ const PROJECTS = [
     title: 'TracFlo',
     tags: ['PERN Stack', 'Express', 'React', 'Knex'],
     description:
-      'Built full-stack features — from UI to database — for a construction-fintech platform that turns field activity into billable change orders, used by 50+ contractor companies and 35+ active users. Led the migration off a legacy PHP system with 30+ reversible database migrations and row-count checks, so the cutover ran without losing or duplicating customer data. Shipped 13+ features handling 135+ equipment and material tickets per project.',
+      'Built full-stack features — from UI to database — for a construction-fintech platform that turns field activity into billable change orders, used by 50+ contractor companies and 35+ active users. Implemented the migration off a legacy PHP system with 30+ reversible database migrations and row-count checks, so the cutover ran without losing or duplicating customer data. Shipped 13+ features handling 135+ equipment and material tickets per project.',
     link: 'https://www.tracfloapp.com',
   },
 ];
