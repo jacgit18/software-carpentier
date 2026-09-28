@@ -55,7 +55,7 @@ export default function App() {
       <main className="wrap" id="main" tabIndex={-1} ref={mainRef}>
         {page === 'home' && <Home onNav={nav} />}
         {page === 'professional-projects' && <ProfessionalProjects />}
-        {page === 'personal-projects' && <PersonalProjects onNav={nav} />}
+        {page === 'personal-projects' && <PersonalProjects />}
         {page === 'about' && <About />}
         {page === 'skills' && <Skills />}
         {page === 'contact' && <Contact />}

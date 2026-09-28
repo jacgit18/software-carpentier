@@ -40,12 +40,3 @@ export function UpskillThumb(props) {
     </svg>
   );
 }
-
-export function HomeLabThumb(props) {
-  return (
-    <svg className="thumb i" viewBox="0 0 64 64" aria-hidden="true" {...props}>
-      <rect x="8" y="10" width="26" height="10" rx="1" /><rect x="8" y="24" width="26" height="10" rx="1" /><rect x="8" y="38" width="26" height="10" rx="1" />
-      <path d="M13 15h.01M13 29h.01M13 43h.01M40 40a7 7 0 0 1 .5-14 9 9 0 0 1 17 1.5A6 6 0 0 1 56 40z" />
-    </svg>
-  );
-}

@@ -1,7 +1,6 @@
-import { HomeLabThumb } from './ProjectThumbs.jsx';
 import { IronLogFigure, DevHiveMindFigure } from './FeaturedFigures.jsx';
 
-export default function PersonalProjects({ onNav }) {
+export default function PersonalProjects() {
   return (
     <section className="page" id="page-personal-projects" aria-labelledby="pers-h">
       <div className="panel">
@@ -11,23 +10,6 @@ export default function PersonalProjects({ onNav }) {
         </div>
         <p className="sub">Side builds — for fun, for training, or to fix my own workflow.</p>
         <div className="pgrid">
-          <article className="card">
-            <div className="card-top">
-              <HomeLabThumb />
-              <div>
-                <h3>Home Lab / TrueNAS</h3>
-                <div className="tags">
-                  <span className="tag">Linux</span><span className="tag">TrueNAS</span>
-                  <span className="tag">Docker</span><span className="tag">Self-Hosted</span>
-                </div>
-              </div>
-            </div>
-            <p>Deployed a home NAS with redundancy, media serving, and AI tooling for personal projects.</p>
-            <button type="button" className="more" onClick={() => onNav('personal-projects')}>
-              View details <svg aria-hidden="true"><use href="#i-arrow" /></svg>
-            </button>
-          </article>
-
           <article className="card featured">
             <div className="fig"><IronLogFigure /></div>
             <div className="body">

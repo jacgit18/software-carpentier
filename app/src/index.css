@@ -214,15 +214,13 @@ button.more{appearance:none;background:none;border:0;padding:0;margin:0;font:inh
 @media (max-width:820px){.about-grid{grid-template-columns:1fr}}
 
 
-.card.featured{grid-column:1 / -1;display:grid;grid-template-columns:1.1fr .8fr;gap:26px;align-items:start;padding:24px}
+.card.featured{display:grid;grid-template-columns:1fr;gap:16px;padding:20px 20px 18px}
 .card.featured .fig{border:1px solid var(--line-soft);background:rgba(4,20,52,.55);padding:14px}
 .card.featured .fig svg{width:100%;height:auto;display:block}
 .card.featured .body{display:flex;flex-direction:column}
 .card.featured .body ul{margin:10px 0 14px;padding-left:18px;font-size:12px;color:var(--dim);line-height:1.9}
 .card.featured .body ul li::marker{color:var(--accent)}
-.card.featured h3{font-size:19px;margin-bottom:6px}
 .card.featured .tags{margin-bottom:2px}
-@media (max-width:760px){.card.featured{grid-template-columns:1fr}}
 
 /* ---------- responsive ---------- */
 @media (max-width:1180px){
