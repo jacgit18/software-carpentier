@@ -5,12 +5,12 @@ import { ClaimsThumb, EmpathThumb, TracFloThumb, UpskillThumb } from './ProjectT
 // the description.
 const PROJECTS = [
   {
-    id: 'payment-plans',
+    id: 'rtic',
     Thumb: ClaimsThumb,
-    title: 'Capital One — RTIC: Promise to Pay Payment Plans',
+    title: 'Capital One — RTIC: Real-Time Intelligence Collection',
     tags: ['AWS', 'Python', 'Docker', 'LocalStack'],
     description:
-      'Built the workflow that lets a customer who has fallen behind on a credit card enroll in a payment plan without waiting for a collections agent, as part of Capital One’s Real-Time Intelligence Collection (RTIC) platform. Also wrote the automated tests that check it from start to finish, running against simulated AWS services on a laptop so engineers could verify changes without waiting for a shared test environment.',
+      'Built several AWS Step Functions workflows for Capital One’s Real-Time Intelligence Collection (RTIC) platform, including one that lets a customer who has fallen behind on a credit card enroll in a payment plan without waiting for a collections agent. Also wrote component tests for these workflows, running against simulated AWS services on a laptop so engineers could verify changes without waiting for a shared test environment.',
   },
   {
     id: 'empath',
@@ -18,7 +18,7 @@ const PROJECTS = [
     title: 'Capital One — Empath',
     tags: ['Vue.js', 'TypeScript', 'Jest', 'Vue Testing Library'],
     description:
-      'Built automated tests for the internal screens Capital One’s credit card agents use every day, including updating a customer’s citizenship record and requesting secure documents. Test coverage on those workflows rose 75%, so changes to compliance-sensitive features were caught before reaching agents or customers.',
+      'Built automated tests for Empath, an internal credit card servicing application Capital One’s agents use every day, including updating a customer’s citizenship record and requesting secure documents. Test coverage on those workflows rose 75%, so changes to compliance-sensitive features were caught before reaching agents or customers.',
   },
   {
     id: 'td-upskilling',
