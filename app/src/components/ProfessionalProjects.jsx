@@ -26,6 +26,7 @@ const PROJECTS = [
     tags: ['PERN Stack', 'Express', 'React', 'Knex'],
     description:
       'Built full-stack features — from UI to database — for a construction-fintech platform that turns field activity into billable change orders, used by 50+ contractor companies and 35+ active users. Led the migration off a legacy PHP system with 30+ reversible database migrations and row-count checks, so the cutover ran without losing or duplicating customer data. Shipped 13+ features handling 135+ equipment and material tickets per project.',
+    link: 'https://www.tracfloapp.com',
   },
 ];
 
@@ -39,7 +40,7 @@ export default function ProfessionalProjects() {
         </div>
         <p className="sub">Real solutions. Clean code. Measurable impact.</p>
         <div className="pgrid">
-          {PROJECTS.map(({ id, Thumb, title, tags, description }) => (
+          {PROJECTS.map(({ id, Thumb, title, tags, description, link }) => (
             <article className="card" key={id}>
               <div className="card-top">
                 <Thumb />
@@ -49,6 +50,13 @@ export default function ProfessionalProjects() {
                 </div>
               </div>
               <p>{description}</p>
+              {link && (
+                <a className="more" href={link} target="_blank" rel="noopener noreferrer">
+                  <img className="link-logo" src="./tracflo-logo.svg" alt="" aria-hidden="true" />
+                  Visit TracFlo <svg aria-hidden="true"><use href="#i-arrow" /></svg>
+                  <span className="sr-only"> (opens in new tab)</span>
+                </a>
+              )}
             </article>
           ))}
         </div>
