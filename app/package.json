@@ -6,14 +6,21 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --port 4173"
+    "preview": "vite preview --port 4173",
+    "test": "playwright test",
+    "audit": "node scripts/audit.mjs",
+    "serve": "npm run build && npm run preview -- --strictPort",
+    "generate:cube": "node scripts/generate-cube.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
     "@vitejs/plugin-react": "^6.1.1",
+    "lighthouse": "^13.5.0",
     "vite": "^8.3.1",
     "vite-plugin-pwa": "^1.3.0"
   }

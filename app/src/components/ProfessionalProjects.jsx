@@ -45,7 +45,7 @@ export default function ProfessionalProjects() {
       <div className="panel">
         <div className="page-head">
           <svg className="mark i" aria-hidden="true"><use href="#i-cross" /></svg>
-          <h2 id="prof-h">Professional Work</h2>
+          <h1 id="prof-h">Professional Work</h1>
         </div>
         <p className="sub">Real solutions. Clean code. Measurable impact.</p>
         <div className="pgrid">
@@ -54,14 +54,14 @@ export default function ProfessionalProjects() {
               <div className="card-top">
                 <Thumb />
                 <div>
-                  <h3>{title}</h3>
+                  <h2>{title}</h2>
                   <div className="tags">{tags.map((t) => <span className="tag" key={t}>{t}</span>)}</div>
                 </div>
               </div>
               <p>{description}</p>
               {link && (
                 <a className="more" href={link} target="_blank" rel="noopener noreferrer">
-                  <img className="link-logo" src="./tracflo-logo.svg" alt="" aria-hidden="true" />
+                  <img className="link-logo" src="./tracflo-logo.svg" width="42" height="14" loading="lazy" decoding="async" alt="" aria-hidden="true" />
                   Visit TracFlo <svg aria-hidden="true"><use href="#i-arrow" /></svg>
                   <span className="sr-only"> (opens in new tab)</span>
                 </a>

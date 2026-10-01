@@ -1,4 +1,3 @@
-import Cube from './Cube.jsx';
 
 export default function Home({ onNav }) {
   return (
@@ -6,7 +5,7 @@ export default function Home({ onNav }) {
       <section className="hero">
         <div className="hero-copy">
           <div className="kicker">PLAN &nbsp;/&nbsp; BUILD &nbsp;/&nbsp; IMPROVE</div>
-          <h2>Software Carpentier</h2>
+          <h1>Software Carpentier</h1>
           <p className="tagline">Turning ideas into scalable systems</p>
           <p className="intro">
             I’m Joshua — six years in tech, the last three building fintech systems at Capital One
@@ -30,7 +29,7 @@ export default function Home({ onNav }) {
           </div>
         </div>
 
-        <Cube />
+        <div className="figure" aria-hidden="true"><img src="./cube.svg" width="940" height="780" alt="" decoding="async" /></div>
 
         <aside className="panel blocks" aria-labelledby="bb-h">
           <h2 id="bb-h">Building blocks of my work</h2>

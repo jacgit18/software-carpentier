@@ -5,7 +5,7 @@ export default function About() {
       <div className="panel">
         <div className="page-head">
           <svg className="mark i" aria-hidden="true"><use href="#i-cross" /></svg>
-          <h2 id="about-h">About Me</h2>
+          <h1 id="about-h">About Me</h1>
         </div>
         <div className="roles">Builder<i>/</i>Problem Solver<i>/</i>Lifelong Learner</div>
         <div className="about-grid">

@@ -43,15 +43,15 @@ sudo sysctl --system
 src/
   main.jsx                     entry point
   App.jsx                      page state (which tab is active) + <title> updates
-  index.css                    all styles, ported as-is from the original <style> block
+  index.css                    blueprint styles, reading themes, responsive and accessibility rules
   components/
-    NavBar.jsx                 top bar + the six tab buttons (collapses to a
+    NavBar.jsx                 top bar + the six navigation links (collapses to a
                                  hamburger menu at <=560px)
     Cube.jsx                    renders the isometric cube from utils/cube.js
     Home.jsx / ProfessionalProjects.jsx / PersonalProjects.jsx /
       About.jsx / Skills.jsx / Contact.jsx     one component per tab
     ProjectThumbs.jsx           small per-project icon glyphs
-    FeaturedFigures.jsx         the Iron Log / DevHiveMind mockup illustrations
+    FeaturedFigures.jsx         original illustration source (not shipped in the client bundle)
     IconSprite.jsx              the shared <symbol> icon sprite
   utils/
     cube.js                     pure geometry functions for the cube (no DOM code)
@@ -61,32 +61,64 @@ public/
   tracflo-logo.svg              third-party logo used on the TracFlo card
 ```
 
-## Notes on the port
+## Navigation and accessibility
 
-- **Tabs are React state, not routes.** `App.jsx` holds `page` in `useState` and
-  passes an `onNav` callback down; clicking a nav button just calls `setPage`.
-  The address bar's `#/tab-name` hash is kept in sync via `history.replaceState`
-  purely for shareable links and refresh — it doesn't drive navigation itself,
-  the way the original hash-router script did.
-- **Every internal control is a `<button>`, not an `<a href="#...">`.** That
-  was a deliberate fix in the original HTML version (some sandboxed viewers,
-  including Claude's own artifact preview, treat clicking a hash-link `<a>` as
-  leaving the page and open a new tab/window instead of just navigating in
-  place). Buttons don't have that problem, so the same approach carried over
-  here. External links (email, GitHub, LinkedIn, Calendly, "View on GitHub")
-  are still plain `<a target="_blank">`, which is correct for those.
-- **The cube is derived data, not DOM manipulation.** The original page built
-  the cube by calling `document.createElementNS` in a loop. `utils/cube.js` is
-  the same math, but as pure functions that return plain `{tag, props}`
-  descriptors; `Cube.jsx` just `.map()`s them into JSX. Pass a different
-  `turns` prop (`[bottom, middle, top]`, in degrees) to change which layer is
-  turned.
-- **Two SVG figures use `dangerouslySetInnerHTML`.** The Iron Log and
-  DevHiveMind card illustrations lean on a lot of hyphenated SVG attributes
-  (`font-family`, `stroke-width`, etc.) that JSX requires as camelCase. Rather
-  than hand-convert ~100 attributes with real risk of a silent typo, those two
-  components render their (static, self-authored) markup directly. Everything
-  else is written as ordinary JSX.
+The six hash routes use real links, browser history, page-specific headings and titles,
+and focus management. The mobile menu closes with Escape. A skip link moves directly
+to the current page without adding a history entry.
+
+A header moon/sun button switches dark mode on and off, restoring the previous
+blueprint or light theme. It shares state with Reading Preferences and persists
+across reloads. Reading preferences offer all three themes plus larger text, with
+local persistence that safely degrades when storage is blocked. The footer includes
+a plain-language overview and technical glossary. Typography uses system fonts to
+avoid remote font requests and supports browser text-size preferences.
+
+## Measuring performance
+
+`npm run dev` serves the development version at port 5173, including React's
+ development checks and Vite's hot-reload client. Its Lighthouse results do not
+represent the production bundle.
+
+For a fresh production build and preview, run:
+
+```bash
+npm run serve
+```
+
+Then audit `http://localhost:4173/#/personal-projects` (or any other route).
+`npm run audit` runs the complete mobile/desktop matrix against built assets.
+
+Project illustrations live in `public/projects/`, share a 460×300 frame, and load
+as SVG images rather than inline JavaScript markup. The two lower cards lazy-load
+ their images. The decorative cube is also a static image; regenerate it after
+changing `src/utils/cube.js` using `npm run generate:cube`.
+
+## Quality checks
+
+```bash
+npm ci
+npx playwright install --with-deps chromium
+npm test
+npm run audit
+```
+
+`npm test` builds production assets and checks all six routes, AAA automated contrast
+rules, narrow-screen reflow, enlarged text and spacing, keyboard behavior, history,
+reading settings, and all three themes at mobile and desktop widths.
+`npm run audit` serves the existing production build and measures all six routes
+with Lighthouse's standard mobile and desktop configurations. Run `npm run build`
+first if you have changed source since running tests. Do not rebuild while auditing.
+An installed Chromium executable can be supplied with `CHROME_PATH` for either command.
+
+Reports are saved in `reports/` (HTML, JSON, and `summary.json`). The audit command
+fails if any numeric category rounds below 100 or any fraction category has an
+unpassed applicable audit. Agentic Browsing must show 3/3: the accessibility tree,
+layout stability, and the public `llms.txt` summary. Performance scores can vary with the machine
+and hosting conditions; inspect the reports when a run fails. The quality workflow
+runs these checks and uploads Lighthouse reports on pushes and pull requests.
+
+See [ACCESSIBILITY.md](ACCESSIBILITY.md) for the scope and remaining manual checks.
 
 ## Deploying
 
@@ -109,3 +141,10 @@ built assets for offline use. If you change the manifest or icons, rerun
 `npm run build` locally to confirm `dist/manifest.webmanifest` and `dist/sw.js`
 still generate cleanly before pushing — the CI build doesn't fail loudly on a
 malformed manifest.
+
+## Project content sources
+
+Iron Log's technology tags and feature summary were checked against its current
+[package.json](https://github.com/jacgit18/iron-log/blob/main/package.json) and
+[README](https://github.com/jacgit18/iron-log/blob/main/README.md) on October 1, 2026:
+React 19, Vite, Zustand, SheetJS, Vitest, and an offline-capable progressive web app.

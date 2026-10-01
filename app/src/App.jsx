@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
+import useReadingPreferences from './hooks/useReadingPreferences.js';
+import ReadingTools from './components/ReadingTools.jsx';
 import IconSprite from './components/IconSprite.jsx';
 import NavBar from './components/NavBar.jsx';
 import Home from './components/Home.jsx';
@@ -26,15 +28,13 @@ function initialPage() {
 
 export default function App() {
   const [page, setPage] = useState(initialPage);
+  const reading = useReadingPreferences();
   const mainRef = useRef(null);
   const isFirstRender = useRef(true);
 
-  // Update the document title and the address-bar hash (for shareable/refreshable
-  // deep links) whenever the active tab changes. history.replaceState — not a real
-  // navigation — so this never causes the browser's own back/forward handling to fire.
   useEffect(() => {
     document.title = (page === 'home' ? '' : `${TITLES[page]} · `) + 'Joshua Carpentier · Software Carpentier';
-    window.history.replaceState(null, '', `#/${page}`);
+
     window.scrollTo(0, 0);
     // Move focus to the new section so keyboard/screen-reader users get the same
     // "you navigated" cue sighted users get from the visual change. Skipped on the
@@ -46,14 +46,28 @@ export default function App() {
     }
   }, [page]);
 
-  const nav = (id) => setPage(PAGES.includes(id) ? id : 'home');
+  useEffect(() => {
+    const sync = () => { if (window.location.hash !== '#main') setPage(initialPage()); };
+    window.addEventListener('hashchange', sync);
+    window.addEventListener('popstate', sync);
+    return () => {
+      window.removeEventListener('hashchange', sync);
+      window.removeEventListener('popstate', sync);
+    };
+  }, []);
+
+  const nav = (id) => {
+    const next = PAGES.includes(id) ? id : 'home';
+    if (next !== page) window.history.pushState(null, '', `#/${next}`);
+    setPage(next);
+  };
 
   return (
     <>
       <IconSprite />
-      <a className="skip-link" href="#main">Skip to content</a>
-      <NavBar page={page} onNav={nav} />
-      <main className="wrap" id="main" tabIndex={-1} ref={mainRef}>
+      <a className="skip-link" href="#main" onClick={(event) => { event.preventDefault(); mainRef.current?.focus(); mainRef.current?.scrollIntoView(); }}>Skip to content</a>
+      <NavBar page={page} onNav={nav} theme={reading.theme} onToggleDark={reading.toggleDark} />
+      <main className="wrap" id="main" tabIndex={-1} ref={mainRef} aria-label={TITLES[page]}>
         {page === 'home' && <Home onNav={nav} />}
         {page === 'professional-projects' && <ProfessionalProjects />}
         {page === 'personal-projects' && <PersonalProjects />}
@@ -61,6 +75,7 @@ export default function App() {
         {page === 'skills' && <Skills />}
         {page === 'contact' && <Contact />}
       </main>
+      <ReadingTools theme={reading.theme} setTheme={reading.setTheme} size={reading.size} setSize={reading.setSize} />
     </>
   );
 }

@@ -1,0 +1,22 @@
+# Joshua Carpentier — Software Carpentier
+
+> Personal portfolio of Joshua Carpentier, a software engineer who builds, tests, and improves software systems.
+
+This site describes Joshua's professional work, personal projects, technical skills, and contact options. The interface uses hash-based navigation. Project descriptions describe Joshua's contributions, not services offered by the companies named.
+
+## Portfolio pages
+
+- [Home](https://jacgit18.github.io/software-carpentier/#/home): Introduction and approach to planning, building, and improving software.
+- [Professional work](https://jacgit18.github.io/software-carpentier/#/professional-projects): Contributions at Capital One, TD Bank, and TracFlo.
+- [Personal projects](https://jacgit18.github.io/software-carpentier/#/personal-projects): Iron Log, DevHiveMind, UnderTheWing, and ParkAlert.
+- [About Joshua](https://jacgit18.github.io/software-carpentier/#/about): Background in IT support, quality assurance, business analysis, and software engineering.
+- [Skills](https://jacgit18.github.io/software-carpentier/#/skills): Languages, frameworks, databases, cloud services, and testing tools.
+- [Contact](https://jacgit18.github.io/software-carpentier/#/contact): Email, GitHub, LinkedIn, and meeting-booking links.
+
+## Public source projects
+
+- [Joshua's GitHub profile](https://github.com/jacgit18): Public repositories.
+- [Iron Log](https://github.com/jacgit18/iron-log): Installable offline workout tracker built with React, Vite, and Zustand, with SheetJS exports and Vitest tests.
+- [DevHiveMind](https://github.com/jacgit18/DevHiveMind): Connected software-development notes.
+- [UnderTheWing](https://github.com/Professional-Job-Seekers/UnderTheWing): A team-built mentorship platform.
+- [ParkAlert](https://github.com/jacgit18/ParkAlert): A parking-availability school project.
