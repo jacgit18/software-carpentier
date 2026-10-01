@@ -10,7 +10,8 @@
     "test": "playwright test",
     "audit": "node scripts/audit.mjs",
     "serve": "npm run build && npm run preview -- --strictPort",
-    "generate:cube": "node scripts/generate-cube.mjs"
+    "generate:cube": "node scripts/generate-cube.mjs",
+    "test:audit": "node --test scripts/audit-preview.test.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
