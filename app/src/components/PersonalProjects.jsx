@@ -28,10 +28,16 @@ export default function PersonalProjects() {
                 <li>Progress charts, heavier-weight suggestions, and stall alerts</li>
                 <li>Offline logging, Excel/JSON import and export, and GitHub backups</li>
               </ul>
-              <a className="more" href="https://github.com/jacgit18/iron-log" target="_blank" rel="noopener noreferrer">
-                View Iron Log on GitHub <svg aria-hidden="true"><use href="#i-arrow" /></svg>
-                <span className="sr-only"> (opens in new tab)</span>
-              </a>
+              <div className="more-row">
+                <a className="more" href="https://jacgit18.github.io/iron-log/" target="_blank" rel="noopener noreferrer">
+                  View deployed app <svg aria-hidden="true"><use href="#i-arrow" /></svg>
+                  <span className="sr-only"> (opens in new tab)</span>
+                </a>
+                <a className="more" href="https://github.com/jacgit18/iron-log" target="_blank" rel="noopener noreferrer">
+                  View Iron Log on GitHub <svg aria-hidden="true"><use href="#i-arrow" /></svg>
+                  <span className="sr-only"> (opens in new tab)</span>
+                </a>
+              </div>
             </div>
           </article>
 
@@ -77,10 +83,16 @@ export default function PersonalProjects() {
               pathways. I built the backend — the Express API, Sequelize models, and PostgreSQL schema
               behind the mentor-mentee matching and task tracking.
             </p>
-            <a className="more" href="https://github.com/Professional-Job-Seekers/UnderTheWing" target="_blank" rel="noopener noreferrer">
-              View UnderTheWing on GitHub <svg aria-hidden="true"><use href="#i-arrow" /></svg>
-              <span className="sr-only"> (opens in new tab)</span>
-            </a>
+            <div className="more-row">
+              <a className="more" href="https://professional-job-seekers.github.io/UnderTheWing/#/" target="_blank" rel="noopener noreferrer">
+                View deployed app <svg aria-hidden="true"><use href="#i-arrow" /></svg>
+                <span className="sr-only"> (opens in new tab)</span>
+              </a>
+              <a className="more" href="https://github.com/Professional-Job-Seekers/UnderTheWing" target="_blank" rel="noopener noreferrer">
+                View UnderTheWing on GitHub <svg aria-hidden="true"><use href="#i-arrow" /></svg>
+                <span className="sr-only"> (opens in new tab)</span>
+              </a>
+            </div>
             </div>
           </article>
 
