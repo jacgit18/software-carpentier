@@ -1,14 +1,14 @@
-import { useEffect, useRef, useState, lazy, Suspense } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useReadingPreferences from './hooks/useReadingPreferences.js';
 import ReadingTools from './components/ReadingTools.jsx';
 import IconSprite from './components/IconSprite.jsx';
 import NavBar from './components/NavBar.jsx';
 import Home from './components/Home.jsx';
-const ProfessionalProjects = lazy(() => import('./components/ProfessionalProjects.jsx'));
-const PersonalProjects = lazy(() => import('./components/PersonalProjects.jsx'));
-const About = lazy(() => import('./components/About.jsx'));
-const Skills = lazy(() => import('./components/Skills.jsx'));
-const Contact = lazy(() => import('./components/Contact.jsx'));
+import ProfessionalProjects from './components/ProfessionalProjects.jsx';
+import PersonalProjects from './components/PersonalProjects.jsx';
+import About from './components/About.jsx';
+import Skills from './components/Skills.jsx';
+import Contact from './components/Contact.jsx';
 
 const TITLES = {
   home: 'Home',
@@ -68,14 +68,12 @@ export default function App() {
       <a className="skip-link" href="#main" onClick={(event) => { event.preventDefault(); mainRef.current?.focus(); mainRef.current?.scrollIntoView(); }}>Skip to content</a>
       <NavBar page={page} onNav={nav} theme={reading.theme} onToggleDark={reading.toggleDark} />
       <main className="wrap" id="main" tabIndex={-1} ref={mainRef} aria-label={TITLES[page]}>
-        <Suspense fallback={null}>
-          {page === 'home' && <Home onNav={nav} />}
-          {page === 'professional-projects' && <ProfessionalProjects />}
-          {page === 'personal-projects' && <PersonalProjects />}
-          {page === 'about' && <About />}
-          {page === 'skills' && <Skills />}
-          {page === 'contact' && <Contact />}
-        </Suspense>
+        {page === 'home' && <Home onNav={nav} />}
+        {page === 'professional-projects' && <ProfessionalProjects />}
+        {page === 'personal-projects' && <PersonalProjects />}
+        {page === 'about' && <About />}
+        {page === 'skills' && <Skills />}
+        {page === 'contact' && <Contact />}
       </main>
       <ReadingTools theme={reading.theme} setTheme={reading.setTheme} size={reading.size} setSize={reading.setSize} />
     </>
