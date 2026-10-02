@@ -18,6 +18,7 @@ for (const route of pages) {
 }
 test('keyboard navigation, skip link and browser history', async ({ page }) => {
   await page.goto('/');
+  await expect(page.locator('main h1')).toBeVisible();
   await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: 'Skip to content' })).toBeFocused();
   await page.keyboard.press('Enter');
