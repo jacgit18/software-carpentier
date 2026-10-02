@@ -100,6 +100,7 @@ changing `src/utils/cube.js` using `npm run generate:cube`.
 npm ci
 npx playwright install --with-deps chromium
 npm test
+npm run test:audit
 npm run audit
 ```
 
@@ -110,6 +111,9 @@ reading settings, and all three themes at mobile and desktop widths.
 with Lighthouse's standard mobile and desktop configurations. Run `npm run build`
 first if you have changed source since running tests. Do not rebuild while auditing.
 An installed Chromium executable can be supplied with `CHROME_PATH` for either command.
+
+`npm run test:audit` checks preview startup, shutdown, and missing-build errors.
+The audit uses Vite’s startup API rather than parsing colored console output.
 
 Reports are saved in `reports/` (HTML, JSON, and `summary.json`). The audit command
 fails if any numeric category rounds below 100 or any fraction category has an

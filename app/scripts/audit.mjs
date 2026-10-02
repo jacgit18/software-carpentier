@@ -1,4 +1,4 @@
-import { spawn } from 'node:child_process';
+import { startAuditPreview } from './audit-preview.mjs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import lighthouse from 'lighthouse';
 import { ReportUtils } from 'lighthouse/report/renderer/report-utils.js';
@@ -7,17 +7,11 @@ import { launch } from 'chrome-launcher';
 import { chromium } from '@playwright/test';
 
 const routes = ['home', 'professional-projects', 'personal-projects', 'about', 'skills', 'contact'];
-const port = 4175;
-const origin = `http://127.0.0.1:${port}`;
-const server = spawn(process.execPath, ['node_modules/vite/bin/vite.js', 'preview', '--host', '127.0.0.1', '--port', String(port), '--strictPort'], { stdio: 'pipe' });
+let server;
 let chrome;
 try {
-  await new Promise((resolve, reject) => {
-    const timeout = setTimeout(() => reject(new Error('Preview server did not start')), 15000);
-    server.on('exit', code => { clearTimeout(timeout); reject(new Error(`Preview server exited: ${code}`)); });
-    server.stdout.on('data', data => { if (String(data).includes(origin)) { clearTimeout(timeout); resolve(); } });
-    server.stderr.on('data', data => process.stderr.write(data));
-  });
+  server = await startAuditPreview();
+  const { origin } = server;
   await mkdir('reports', { recursive: true });
   chrome = await launch({ chromePath: process.env.CHROME_PATH || chromium.executablePath(), chromeFlags: ['--headless', '--no-sandbox'] });
   const summary = [];
@@ -51,6 +45,9 @@ try {
   if (summary.some(row => Object.values(row.scores).some(score => score < 100) ||
     Object.values(row.fractions).some(({ passed, total }) => passed !== total))) process.exitCode = 1;
 } finally {
-  if (chrome) await chrome.kill();
-  server.kill();
+  try {
+    if (chrome) await chrome.kill();
+  } finally {
+    await server?.close();
+  }
 }
